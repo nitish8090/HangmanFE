@@ -7,6 +7,7 @@ import { GameWindowComponent } from './game-window/game-window.component';
 
 // For HTTP Requests
 import { HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
 
     HttpClientModule,
+     NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

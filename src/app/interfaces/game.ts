@@ -6,5 +6,8 @@ export interface Game {
     started_at: Date,
     current_state: string,
     current_pos: string,
-    guess_remaining: number
+    guesses_remaining: number,
+    is_guess_correct: boolean,
+    guesses_made: string,
+    answer: string
 }
