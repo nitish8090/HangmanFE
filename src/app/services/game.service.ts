@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Game } from '../interfaces/game';
 
 
@@ -9,13 +10,12 @@ import { Game } from '../interfaces/game';
 })
 export class GameService  {
 
-  base_url = 'http://localhost:8000/'
+  base_url: string = environment.baseApiURL;
+  
   constructor(private http: HttpClient) { }
 
-  
-
   startNewGame(): Observable<Game> {
-    return this.http.get<Game>(this.base_url + `game/new`)
+    return this.http.get<Game>(this.base_url + `game/new/`)
   }
 
   makeGuess(game_id: number, guess: string): Observable<Game>{
