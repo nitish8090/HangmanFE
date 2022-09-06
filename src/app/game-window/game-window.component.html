@@ -2,17 +2,21 @@
 
 <div class="game-frame">
 
-    <h1 *ngIf="!isGameOn && !!game.id">You <span [ngStyle]="game.current_state === 'Won' && {'color': 'green'} || {'color': 'red'}">{{game.current_state}}</span></h1>
+    <h1 *ngIf="!isGameOn && !!game.id">You <span
+            [ngStyle]="game.current_state === 'Won' && {'color': 'green'} || {'color': 'red'}">{{game.current_state}}</span>
+    </h1>
     <h3>Guess the word</h3>
     <div class="current-characters" [ngStyle]="game.current_state === 'Lost' && {'color': 'red'} || null">
         <span class='current-character' *ngFor="let char of format_current_pos()">{{char | uppercase}}</span>
     </div>
-    <div *ngIf="isGameOn" class="tries-left">Tries Remaining: <span class="badge bg-secondary">{{game.guesses_remaining}}</span></div>
+    <div *ngIf="isGameOn" class="tries-left">Tries Remaining: <span
+            class="badge bg-secondary">{{game.guesses_remaining}}</span></div>
     <img src="assets/hangman.jpg" />
 
     <div class="keyboard">
-        <button (click)="makeGuess(c)" [disabled]="game.guesses_made.includes(c)" [ngStyle]="game.guesses_made.includes(c) && {'opacity': '0.3'} || null"
-            class="btn btn-light" *ngFor="let c of alphabetList">{{c | uppercase}}</button>
+        <button (click)="makeGuess(c)" [disabled]="game.guesses_made.includes(c)"
+            [ngStyle]="game.guesses_made.includes(c) && {'opacity': '0.3'} || null" class="btn btn-light"
+            *ngFor="let c of alphabetList">{{c | uppercase}}</button>
     </div>
 </div>
 
